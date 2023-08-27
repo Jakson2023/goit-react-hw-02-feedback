@@ -23,6 +23,15 @@ countUpdateState = (typeState) => {
       }
 
 countTotalFeedback = () => {
+return this.state.good+this.state.neutral+this.state.bad
+}
+
+countPositiveFeedbackPercentage = () => {
+  const totalFeedback = this.countTotalFeedback();
+  if (totalFeedback === 0) {
+    return 0;
+  }
+  return Math.round((this.state.good / totalFeedback) * 100);
 
 }
 
@@ -41,6 +50,8 @@ countTotalFeedback = () => {
           <span>Good: {this.state.good}</span>
           <span>Neutral:{this.state.neutral}</span>
           <span>Bad:{this.state.bad}</span>
+          <span>Total:{this.countTotalFeedback()}</span>
+          <span>PositiveFeedback:{this.countPositiveFeedbackPercentage()}{`%`}</span>
       </Counter>
       
       </div>
