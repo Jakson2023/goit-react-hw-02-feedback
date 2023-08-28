@@ -32,10 +32,11 @@ export class App extends Component {
   };
 
   render() {
+    const keys = Object.keys(this.state)
     return (
       <div>
         <Section title="Please leave feedback">
-          <FeedbackOptions onClick={this.handleClick} />
+          <FeedbackOptions onClick={this.handleClick} options={keys} />
         </Section>
         <Section title="Statistics">
           <Statistics
